@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Deivid IA — Seu amigo para todas as horas</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,27 +56,28 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%;overflow:hidden}
+@supports(height:100dvh){html,body{height:100dvh}}
 body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;display:flex;flex-direction:column;position:relative;transition:background .3s,color .3s}
 .bg-mesh{position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(ellipse 80% 50% at 20% 40%,var(--mesh-1),transparent),radial-gradient(ellipse 60% 40% at 80% 60%,var(--mesh-2),transparent);transition:background .3s}
-header{position:relative;z-index:20;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;padding:0 18px;height:52px;border-bottom:1px solid var(--border);background:var(--header-bg);backdrop-filter:blur(20px) saturate(1.2);transition:background .3s,border-color .3s}
-.logo{display:flex;align-items:center;gap:10px}
+header{position:relative;z-index:20;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;padding:0 18px;height:52px;border-bottom:1px solid var(--border);background:var(--header-bg);backdrop-filter:blur(20px) saturate(1.2);transition:background .3s,border-color .3s;gap:8px;min-width:0}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:1;min-width:0;overflow:hidden}
 .logo-mark{width:30px;height:30px;background:linear-gradient(135deg,var(--accent),var(--cyan));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:var(--logo-mark-text);flex-shrink:0;transition:color .3s}
-.logo-info{display:flex;flex-direction:column;gap:0}
-.logo-text{font-size:15px;font-weight:700;color:var(--text);letter-spacing:-0.02em;transition:color .3s}
-.logo-sub{font-size:10px;color:var(--muted);transition:color .3s}
-.date-display{font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace;background:var(--s2);padding:4px 10px;border-radius:6px;border:1px solid var(--border);white-space:nowrap;transition:background .3s,border-color .3s,color .3s}
-.h-actions{display:flex;align-items:center;gap:6px}
+.logo-info{display:flex;flex-direction:column;gap:0;min-width:0}
+.logo-text{font-size:15px;font-weight:700;color:var(--text);letter-spacing:-0.02em;transition:color .3s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.logo-sub{font-size:10px;color:var(--muted);transition:color .3s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.date-display{font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace;background:var(--s2);padding:4px 10px;border-radius:6px;border:1px solid var(--border);white-space:nowrap;transition:background .3s,border-color .3s,color .3s;flex-shrink:0}
+.h-actions{display:flex;align-items:center;gap:6px;flex-shrink:0}
 .hbtn{padding:5px 12px;background:var(--s2);border:1px solid var(--border);border-radius:6px;color:var(--muted);font-size:11px;cursor:pointer;transition:all .15s;font-family:'Inter',sans-serif;white-space:nowrap}
 .hbtn:hover{border-color:var(--accent);color:var(--accent2);background:var(--hbtn-hover-bg)}
 .hbtn.danger{border-color:rgba(248,113,113,.12)}
 .hbtn.danger:hover{border-color:var(--r);color:var(--r);background:var(--hbtn-danger-hover)}
-.theme-btn{padding:5px 10px;background:var(--s2);border:1px solid var(--border);border-radius:6px;color:var(--muted);font-size:14px;cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center;width:32px;height:32px}
+.theme-btn{padding:5px 10px;background:var(--s2);border:1px solid var(--border);border-radius:6px;color:var(--muted);font-size:14px;cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center;width:32px;height:32px;flex-shrink:0}
 .theme-btn:hover{border-color:var(--accent);color:var(--accent2);background:var(--hbtn-hover-bg)}
-.msgs{flex:1;overflow-y:auto;padding:20px 16px 20px 48px;display:flex;flex-direction:column;gap:14px;scroll-behavior:smooth;position:relative;z-index:2}
+.msgs{flex:1;min-height:0;overflow-y:auto;padding:20px 16px 20px 48px;display:flex;flex-direction:column;gap:14px;scroll-behavior:smooth;position:relative;z-index:2}
 .msgs::-webkit-scrollbar{width:3px}
 .msgs::-webkit-scrollbar-track{background:transparent}
 .msgs::-webkit-scrollbar-thumb{background:rgba(139,92,246,0.12);border-radius:3px}
-.welcome{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:calc(100vh - 200px);gap:16px;text-align:center;animation:fadeUp .5s ease-out}
+.welcome{display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center;animation:fadeUp .5s ease-out;padding:32px 0;margin-top:auto;margin-bottom:auto}
 @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 .wglyph{width:64px;height:64px;background:linear-gradient(135deg,var(--accent),var(--cyan));border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 0 30px rgba(139,92,246,0.2);animation:float 4s ease-in-out infinite}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
@@ -181,8 +182,37 @@ header{position:relative;z-index:20;flex-shrink:0;display:flex;align-items:cente
 ::-webkit-scrollbar{width:3px;height:3px}
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:rgba(139,92,246,0.1);border-radius:3px}
-@media(max-width:768px){.msgs{padding-left:40px;padding-right:8px}.copy-msg-btn{left:-36px;width:26px;height:26px;font-size:10px;opacity:1}.msg.user .copy-msg-btn{right:-36px}.welcome h1{font-size:20px}.logo-sub{display:none}.date-display{display:none}}
-@media(max-width:480px){.msgs{padding-left:10px;padding-right:4px}.copy-msg-btn{display:none}.hbtn{padding:4px 8px;font-size:10px}.hbtn:first-child{display:none}.theme-btn{display:none}}
+
+/* ═══ TABLET ═══ */
+@media(max-width:768px){
+  .msgs{padding:16px 12px}
+  .copy-msg-btn{left:-36px;width:26px;height:26px;font-size:10px;opacity:1}
+  .msg.user .copy-msg-btn{right:-36px}
+  .welcome h1{font-size:20px}
+  .logo-sub{display:none}
+  .date-display{display:none}
+  .welcome{padding:20px 0;gap:12px}
+  header{padding:0 10px;gap:6px}
+}
+
+/* ═══ MOBILE ═══ */
+@media(max-width:480px){
+  .msgs{padding:10px 8px}
+  .copy-msg-btn{display:none}
+  .hbtn{padding:3px 5px;font-size:9px}
+  .msg-count{display:none}
+  .welcome{padding:16px 0;gap:10px}
+  .h-actions{gap:3px}
+  .sugs{gap:6px}
+  .sug{padding:6px 10px}
+  .cats{gap:4px}
+  .cat{padding:4px 8px}
+  header{padding:0 8px;gap:4px}
+  .logo{gap:6px}
+  .input-zone{padding:8px 8px 10px}
+  .input-footer{font-size:9px}
+  .bubble{padding:10px 12px}
+}
 </style>
 <base target="_blank">
 </head>
@@ -193,7 +223,7 @@ header{position:relative;z-index:20;flex-shrink:0;display:flex;align-items:cente
   <div class="date-display" id="dateDisplay"></div>
   <div class="h-actions">
     <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="Alternar tema">☀️</button>
-    <div class="hbtn">Msgs: <b id="cnt" style="color:var(--g)">0</b></div>
+    <div class="hbtn msg-count">Msgs: <b id="cnt" style="color:var(--g)">0</b></div>
     <button class="hbtn" onclick="openConfig()">⚙️ API Key</button>
     <button class="hbtn danger" onclick="clearChat()">🗑 Limpar</button>
   </div>
