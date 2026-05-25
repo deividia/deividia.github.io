@@ -40,7 +40,6 @@ body{
   position:relative;
 }
 
-/* Background minimalista */
 .bg-mesh{
   position:fixed;
   inset:0;
@@ -619,7 +618,7 @@ header{
   <div class="welcome" id="welcome">
     <div class="wglyph">✦</div>
     <h1>Olá, Deivid IA aqui! 👋</h1>
-    <p class="wsub">Seu assistente virtual e amigo para todas as horas — pronto para ajudar com código, ideias, textos, análises e muito mais.</p>
+    <p class="wsub">Seu assistente virtual e amigo para todas as horas — pronto para ajudar com código, ideias, textos, análises, relacionamentos e muito mais. Pode falar comigo sobre qualquer coisa!</p>
     <div class="wstatus"><div class="dot"></div>Online e pronto pra te ajudar</div>
     <div class="cats">
       <span class="cat">💻 Código</span>
@@ -628,15 +627,15 @@ header{
       <span class="cat">🎨 Criatividade</span>
       <span class="cat">📚 Estudos</span>
       <span class="cat">💼 Negócios</span>
-      <span class="cat">🏋️ Saúde</span>
+      <span class="cat">❤️ Relacionamentos</span>
       <span class="cat">🌍 Conhecimentos</span>
     </div>
     <div class="sugs" id="sugs">
       <div class="sug" onclick="useSug(this)">💻 Criar uma API REST com Python e Flask</div>
-      <div class="sug" onclick="useSug(this)">📝 Escrever um e-mail profissional persuasivo</div>
+      <div class="sug" onclick="useSug(this)">❤️ Como saber se alguém gosta de mim?</div>
       <div class="sug" onclick="useSug(this)">🧮 Explicar cálculo diferencial de forma simples</div>
       <div class="sug" onclick="useSug(this)">🧠 Como funciona a memória humana?</div>
-      <div class="sug" onclick="useSug(this)">🍳 Receita saudável rápida em 15 minutos</div>
+      <div class="sug" onclick="useSug(this)">💔 Meu ex voltou, o que fazer?</div>
       <div class="sug" onclick="useSug(this)">💡 Ideias para um app inovador</div>
     </div>
   </div>
@@ -644,7 +643,7 @@ header{
 
 <div class="input-zone">
   <div class="input-row">
-    <textarea id="inp" placeholder="Pergunte qualquer coisa..." rows="1"></textarea>
+    <textarea id="inp" placeholder="Fale comigo sobre qualquer coisa..." rows="1"></textarea>
     <button class="sbtn" id="sbtn" onclick="send()">➤</button>
   </div>
   <div class="input-footer">
@@ -734,7 +733,7 @@ function saveConfig(){
   if(val){localStorage.setItem('deivid_api_key',val);_k=val;toast('✓ API Key salva!',3000,'success');}
   else{localStorage.removeItem('deivid_api_key');_k=_kFallback;toast('Usando chave padrão embutida.',3000);}
   closeConfig();
-  if(!_k||_k.split('.').length!==2){toast('⚠ Nenhuma chave válida! Clique em ⚙️ API Key para configurar.',6000);}
+  if(!_k||_k.split('.').length!==2){toast('⚠ Nenhuma chave válida! Clique em ⚙️ API Key.',6000);}
 }
 
 /* ═══════════ SHA-256 ═══════════ */
@@ -819,10 +818,49 @@ const MODELS=['glm-4.5-flash','glm-5.1','glm-4.7-flashx','glm-4.6','glm-4.7-flas
 
 let history=[];let busy=false;let msgCount=0;let activeModel=MODELS[0];
 
-const SYSTEM=`Você é o Deivid IA, um assistente de IA amigável, inteligente e versátil — o amigo para todas as horas.
-Responda SEMPRE em português brasileiro, de forma clara, detalhada e com personalidade.
-VOCÊ É ESPECIALISTA EM TUDO: 💻 Programação, 📐 Matemática, 📝 Escrita, 🎨 Criatividade, 📚 Estudos, 💼 Negócios, 🏋️ Saúde, 🌍 Conhecimentos Gerais, 🔧 Tecnologia, 🎮 Entretenimento.
-REGRAS: 1. Adapte o formato ao tipo de pergunta. 2. Use blocos de código com linguagem. 3. Use emojis. 4. Seja completo mas direto. 5. Para perguntas complexas: passo a passo. 6. Mostre entusiasmo. 7. Se não souber, seja honesto. 8. Dê exemplos práticos. 9. Em dúvidas, pergunte de volta.`;
+const SYSTEM=`Você é o Deivid IA, um assistente de IA extremamente inteligente, empático e versátil — um verdadeiro AMIGO para todas as horas e para TODOS os assuntos.
+
+🧠 PERSONALIDADE:
+- Fale como uma pessoa REAL: calorosa, autêntica, com empatia genuína
+- Seja espontâneo, use humor quando apropriado, mas também seja sério quando necessário
+- Demonstre interesse REAL pelo usuário — pergunte como ele está, lembre contexto de conversas
+- Use linguagem natural, como se estivesse conversando no WhatsApp com um amigo próximo
+- Seja honesto, mas sempre gentil e construtivo
+
+💬 COMPORTAMENTO:
+- Responda SEMPRE em português brasileiro, de forma natural e fluida
+- Adapte seu tom ao contexto: técnico para código, carinhoso para relacionamentos, motivador para conselhos
+- Use emojis com moderação para expressar emoção (não exagere)
+- Para perguntas complexas: explique passo a passo, como um amigo paciente faria
+- Se não souber algo, admita com honestidade: "Hmm, não tenho certeza disso, mas posso pesquisar/te dar minha opinião"
+- Dê exemplos práticos e situações do dia a dia
+- Em dúvidas, pergunte de volta com curiosidade genuína
+
+❤️ RELACIONAMENTOS E ASSUNTOS PESSOAIS:
+- Você é um confidente de confiança para assuntos amorosos, familiares, emocionais
+- Dê conselhos de relacionamento com sensibilidade: escute, valide sentimentos, sugira perspectivas
+- Sobre amor: ajude a interpretar sinais, dar conselhos de como se aproximar, lidar com rejeição, reconquistar alguém, superar términos
+- Sobre amizade: medie conflitos, sugira como aproximar pessoas, lidar com toxicidade
+- Sobre família: seja compreensivo com dinâmicas familiares difíceis
+- NUNCA seja julgador. Sempre acolhedor e sem preconceitos
+- Pode falar sobre intimidade, sexualidade, fantasias — sempre com respeito, maturidade e sem tabus
+- Entenda que o usuário pode estar vulnerável: seja seu ombro amigo
+
+💻 CONHECIMENTO TÉCNICO:
+- ESPECIALISTA EM: Programação, Matemática, Ciências, Tecnologia, Negócios, Escrita, Arte
+- Explique código com clareza, use blocos de código com linguagem identificada
+- Para matemática: mostre o raciocínio passo a passo
+- Para negócios: dê estratégias práticas e acionáveis
+
+🎯 REGRAS FUNDAMENTAIS:
+1. Seja completo mas direto — não enrola
+2. Use formatação que facilite leitura (listas, negrito, blocos)
+3. Demonstre que se importa com a resposta
+4. Se o usuário parece triste/angustiado: seja mais gentil, ofereça apoio
+5. Se o usuário está animado: acompanhe a energia
+6. Seja um amigo que também ensina, não só um professor
+7. Mantenha confidencialidade — o usuário pode compartilhar segredos
+8. NUNCA seja robótico ou frio, mesmo em respostas técnicas`;
 
 /* ═══════════ TEXTAREA ═══════════ */
 const inp=document.getElementById('inp');
@@ -877,7 +915,7 @@ function showTyping(){
 function removeTyping(){const t=document.getElementById('typing');if(t)t.remove();}
 function clearChat(){
   history=[];msgCount=0;document.getElementById('cnt').textContent='0';
-  document.getElementById('msgs').innerHTML='<div class="welcome" id="welcome"><div class="wglyph">✦</div><h1>Chat reiniciado!</h1><p class="wsub">Pronto para ajudar novamente!</p><div class="wstatus"><div class="dot"></div>Conectado · BigModel GLM</div><div class="cats"><span class="cat">💻 Código</span><span class="cat">📝 Textos</span><span class="cat">🧮 Matemática</span><span class="cat">🎨 Criatividade</span><span class="cat">📚 Estudos</span><span class="cat">💼 Negócios</span><span class="cat">🏋️ Saúde</span><span class="cat">🌍 Conhecimentos</span></div><div class="sugs" id="sugs"><div class="sug" onclick="useSug(this)">💻 Criar uma API REST com Python e Flask</div><div class="sug" onclick="useSug(this)">📝 Escrever um e-mail profissional persuasivo</div><div class="sug" onclick="useSug(this)">🧮 Explicar cálculo diferencial de forma simples</div><div class="sug" onclick="useSug(this)">🧠 Como funciona a memória humana?</div><div class="sug" onclick="useSug(this)">🍳 Receita saudável rápida em 15 minutos</div><div class="sug" onclick="useSug(this)">💡 Ideias para um app inovador</div></div></div>';
+  document.getElementById('msgs').innerHTML='<div class="welcome" id="welcome"><div class="wglyph">✦</div><h1>Chat reiniciado!</h1><p class="wsub">Pronto para ajudar novamente! Pode falar sobre qualquer coisa — estou aqui pra você.</p><div class="wstatus"><div class="dot"></div>Conectado · BigModel GLM</div><div class="cats"><span class="cat">💻 Código</span><span class="cat">📝 Textos</span><span class="cat">🧮 Matemática</span><span class="cat">🎨 Criatividade</span><span class="cat">📚 Estudos</span><span class="cat">💼 Negócios</span><span class="cat">❤️ Relacionamentos</span><span class="cat">🌍 Conhecimentos</span></div><div class="sugs" id="sugs"><div class="sug" onclick="useSug(this)">💻 Criar uma API REST com Python e Flask</div><div class="sug" onclick="useSug(this)">❤️ Como saber se alguém gosta de mim?</div><div class="sug" onclick="useSug(this)">🧮 Explicar cálculo diferencial de forma simples</div><div class="sug" onclick="useSug(this)">🧠 Como funciona a memória humana?</div><div class="sug" onclick="useSug(this)">💔 Meu ex voltou, o que fazer?</div><div class="sug" onclick="useSug(this)">💡 Ideias para um app inovador</div></div></div>';
   toast('Chat limpo!',2500,'success');
 }
 function useSug(el){inp.value=el.textContent.replace(/^[^\s]+\s/,'');inp.focus();send();}
@@ -907,7 +945,7 @@ async function send(){
     for(let sa=0;sa<2&&!success;sa++){
       const stream=sa===0;
       try{
-        const body=JSON.stringify({model,messages,temperature:0.4,max_tokens:4096,stream});
+        const body=JSON.stringify({model,messages,temperature:0.7,max_tokens:4096,stream});
         const res=await fetch(API_V4,{
           method:'POST',
           headers:{'Authorization':'Bearer '+token,'Content-Type':'application/json'},
