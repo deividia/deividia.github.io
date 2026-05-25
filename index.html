@@ -62,8 +62,8 @@ header{position:relative;z-index:20;flex-shrink:0;display:flex;align-items:cente
 .logo{display:flex;align-items:center;gap:10px}
 .logo-mark{width:30px;height:30px;background:linear-gradient(135deg,var(--accent),var(--cyan));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:var(--logo-mark-text);flex-shrink:0;transition:color .3s}
 .logo-info{display:flex;flex-direction:column;gap:0}
-.logo-text{font-size:15px;font-weight:700;color:var(--text);letter-spacing:-0.02em;transition:color .3s}
-.logo-sub{font-size:10px;color:var(--muted);transition:color .3s}
+.logo-text{font-size:17px;font-weight:700;color:var(--text);letter-spacing:-0.02em;transition:color .3s}
+.logo-sub{font-size:12px;color:var(--muted);transition:color .3s}
 .date-display{font-size:11px;color:var(--muted);font-family:'JetBrains Mono',monospace;background:var(--s2);padding:4px 10px;border-radius:6px;border:1px solid var(--border);white-space:nowrap;transition:background .3s,border-color .3s,color .3s}
 .h-actions{display:flex;align-items:center;gap:6px}
 .hbtn{padding:5px 12px;background:var(--s2);border:1px solid var(--border);border-radius:6px;color:var(--muted);font-size:11px;cursor:pointer;transition:all .15s;font-family:'Inter',sans-serif;white-space:nowrap}
@@ -73,15 +73,81 @@ header{position:relative;z-index:20;flex-shrink:0;display:flex;align-items:cente
 .theme-btn{padding:5px 10px;background:var(--s2);border:1px solid var(--border);border-radius:6px;color:var(--muted);font-size:14px;cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center;width:32px;height:32px}
 .theme-btn:hover{border-color:var(--accent);color:var(--accent2);background:var(--hbtn-hover-bg)}
 .msgs{flex:1;overflow-y:auto;padding:20px 16px 20px 48px;display:flex;flex-direction:column;gap:14px;scroll-behavior:smooth;position:relative;z-index:2}
-.msgs::-webkit-scrollbar{width:3px}
+.msgs
+@media(max-width:768px){
+  .msgs{padding-left:12px;padding-right:12px;padding-bottom:80px;}
+  .copy-msg-btn{left:auto;right:4px;top:4px;width:24px;height:24px;font-size:10px;opacity:1;}
+  .msg.user .copy-msg-btn{right:4px;}
+  .welcome h1{font-size:22px;}
+  .logo-sub{display:none;}
+  .date-display{display:none;}
+  .wglyph{width:52px;height:52px;}
+  .wglyph img{width:52px!important;height:52px!important;}
+  .welcome{min-height:auto;padding:30px 16px;gap:12px;}
+  .wsub{font-size:12px;max-width:100%;padding:0 10px;}
+  .cats{max-width:100%;}
+  .cat{font-size:10px;padding:4px 10px;}
+  .sugs{max-width:100%;}
+  .sug{font-size:11px;padding:6px 10px;}
+  .input-zone{padding:8px 10px 12px;}
+  .input-row{padding:6px 8px 6px 12px;}
+  #inp{font-size:14px;}
+  header{padding:0 10px;height:48px;}
+  .logo-text{font-size:14px;}
+  .hbtn{padding:4px 8px;font-size:10px;}
+  .theme-btn{width:28px;height:28px;font-size:12px;padding:4px;display:flex;}
+  .modal-box{padding:20px;}
+}
+@media(max-width:480px){
+  .msgs{padding-left:8px;padding-right:8px;padding-bottom:90px;}
+  .copy-msg-btn{display:none;}
+  .hbtn{padding:4px 6px;font-size:9px;}
+  .hbtn:first-child{display:none;}
+  .theme-btn{display:flex;width:28px;height:28px;font-size:12px;padding:4px;}
+  .welcome h1{font-size:18px;}
+  .wsub{font-size:11px;line-height:1.6;padding:0 8px;}
+  .wstatus{font-size:12px;padding:6px 12px;}
+  .wglyph{width:48px;height:48px;}
+  .wglyph img{width:48px!important;height:48px!important;}
+  .cat{font-size:9px;padding:3px 8px;}
+  .sug{font-size:10px;padding:5px 8px;}
+  .bubble{font-size:13px;padding:10px 12px;}
+  .input-footer{font-size:9px;}
+  .input-footer kbd{font-size:8px;padding:1px 3px;}
+  .modal-box{width:95%;padding:16px;}
+  .modal-box h2{font-size:14px;}
+  .modal-box p{font-size:11px;}
+  .modal-input{padding:8px 10px;font-size:11px;}
+  .mbtn{padding:6px 12px;font-size:10px;}
+  .av{width:26px;height:26px;}
+  .msg.ai .av img{width:14px!important;height:14px!important;}
+  .mmeta{font-size:8px;}
+  .logo-mark{width:26px;height:26px;}
+  .logo-mark img{width:26px!important;height:26px!important;}
+}
+@media(max-width:360px){
+  .welcome h1{font-size:16px;}
+  .wsub{font-size:10px;}
+  .cat{font-size:8px;padding:2px 6px;}
+  .sug{font-size:9px;padding:4px 6px;}
+  .bubble{font-size:12px;padding:8px 10px;}
+  .av{width:24px;height:24px;}
+  .msg.ai .av img{width:12px!important;height:12px!important;}
+  .mmeta{font-size:7px;}
+  .logo-mark{width:24px;height:24px;}
+  .logo-mark img{width:24px!important;height:24px!important;}
+  .theme-btn{width:26px;height:26px;font-size:11px;}
+  .hbtn{padding:3px 5px;font-size:8px;}
+}
+::-webkit-scrollbar{width:3px}
 .msgs::-webkit-scrollbar-track{background:transparent}
 .msgs::-webkit-scrollbar-thumb{background:rgba(139,92,246,0.12);border-radius:3px}
-.welcome{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:calc(100vh - 200px);gap:16px;text-align:center;animation:fadeUp .5s ease-out}
+.welcome{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:calc(100vh - 200px);gap:16px;text-align:center;animation:fadeUp .5s ease-out;overflow:visible}
 @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-.wglyph{width:64px;height:64px;background:linear-gradient(135deg,var(--accent),var(--cyan));border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 0 30px rgba(139,92,246,0.2);animation:float 4s ease-in-out infinite}
+.wglyph{width:64px;height:64px;background:linear-gradient(135deg,var(--accent),var(--cyan));border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:0 0 30px rgba(139,92,246,0.2);animation:float 4s ease-in-out infinite;flex-shrink:0}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 .welcome h1{font-size:26px;font-weight:700;color:var(--text);letter-spacing:-0.02em;transition:color .3s}
-.wsub{color:var(--muted);font-size:13px;max-width:480px;line-height:1.7;transition:color .3s}
+.wsub{color:var(--muted);font-size:15px;max-width:480px;line-height:1.7;transition:color .3s}
 .wstatus{display:flex;align-items:center;gap:6px;padding:6px 14px;background:var(--wstatus-bg);border:1px solid var(--wstatus-border);border-radius:20px;font-size:11px;color:var(--g);transition:background .3s,border-color .3s}
 .wstatus .dot{width:5px;height:5px;border-radius:50%;background:var(--g);animation:dotPulse 2s infinite}
 @keyframes dotPulse{0%,100%{opacity:.5}50%{opacity:1;transform:scale(1.2)}}
@@ -123,7 +189,7 @@ header{position:relative;z-index:20;flex-shrink:0;display:flex;align-items:cente
 .bubble blockquote{border-left:2px solid var(--accent);margin:8px 0;padding:6px 12px;color:var(--muted);background:var(--bubble-blockquote-bg);border-radius:0 6px 6px 0;transition:background .3s,color .3s}
 .bubble pre{background:var(--code-bg);border:1px solid var(--border);border-radius:10px;margin:10px 0;font-size:12px;line-height:1.6;position:relative;overflow:hidden;transition:background .3s,border-color .3s}
 .pre-header{display:flex;align-items:center;justify-content:space-between;padding:6px 12px;background:var(--pre-header-bg);border-bottom:1px solid var(--pre-header-border);transition:background .3s,border-color .3s}
-.pre-lang{font-size:9px;color:var(--accent2);letter-spacing:.08em;text-transform:uppercase;font-weight:600;transition:color .3s}
+.pre-lang{font-size:11px;color:var(--accent2);letter-spacing:.08em;text-transform:uppercase;font-weight:600;transition:color .3s}
 .copy-code-btn{padding:4px 10px;background:var(--copy-code-bg);border:1px solid var(--copy-code-border);border-radius:5px;color:var(--accent2);font-size:9px;font-weight:600;cursor:pointer;transition:all .15s;font-family:'Inter',sans-serif}
 .copy-code-btn:hover{background:var(--copy-code-hover);border-color:var(--cyan);color:var(--cyan)}
 .copy-code-btn.ok{background:rgba(52,211,153,.1)!important;border-color:var(--g)!important;color:var(--g)!important}
@@ -140,7 +206,7 @@ header{position:relative;z-index:20;flex-shrink:0;display:flex;align-items:cente
 .think-content{padding:10px 12px;font-size:11px;color:var(--muted);line-height:1.6;max-height:180px;overflow-y:auto;white-space:pre-wrap;transition:color .3s}
 .typing-row{display:flex;gap:10px;max-width:880px;width:100%;margin:0 auto;animation:msgIn .2s ease-out}
 .typing{display:flex;align-items:center;gap:6px;padding:12px 16px;background:var(--typing-bg);border:1px solid var(--typing-border);border-radius:var(--radius);border-top-left-radius:3px;transition:background .3s,border-color .3s}
-.typing-txt{font-size:10px;color:var(--muted);margin-right:3px;transition:color .3s}
+.typing-txt{font-size:12px;color:var(--muted);margin-right:3px;transition:color .3s}
 .td{width:6px;height:6px;border-radius:50%;animation:td 1.2s infinite ease-in-out}
 .td:nth-child(2){background:var(--accent);animation-delay:.1s}
 .td:nth-child(3){background:var(--cyan);animation-delay:.2s}
@@ -164,9 +230,9 @@ header{position:relative;z-index:20;flex-shrink:0;display:flex;align-items:cente
 .modal-overlay{position:fixed;inset:0;background:var(--modal-bg);backdrop-filter:blur(10px);z-index:200;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .2s,background .3s}
 .modal-overlay.open{opacity:1;pointer-events:all}
 .modal-box{background:var(--s1);border:1px solid rgba(139,92,246,.2);border-radius:14px;padding:24px;max-width:440px;width:90%;box-shadow:0 0 40px rgba(139,92,246,0.1);transition:background .3s}
-.modal-box h2{font-size:16px;font-weight:700;color:var(--accent2);margin-bottom:4px;transition:color .3s}
-.modal-box p{font-size:12px;color:var(--muted);margin-bottom:16px;line-height:1.6;transition:color .3s}
-.modal-box label{font-size:10px;color:var(--muted);letter-spacing:.05em;display:block;margin-bottom:5px;transition:color .3s}
+.modal-box h2{font-size:18px;font-weight:700;color:var(--accent2);margin-bottom:4px;transition:color .3s}
+.modal-box p{font-size:14px;color:var(--muted);margin-bottom:16px;line-height:1.6;transition:color .3s}
+.modal-box label{font-size:12px;color:var(--muted);letter-spacing:.05em;display:block;margin-bottom:5px;transition:color .3s}
 .modal-input{width:100%;background:var(--modal-input-bg);border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--text);font-family:'JetBrains Mono',monospace;font-size:12px;outline:none;transition:border-color .2s,background .3s,color .3s;margin-bottom:14px}
 .modal-input:focus{border-color:rgba(139,92,252,.3)}
 .modal-actions{display:flex;gap:8px;justify-content:flex-end}
@@ -181,8 +247,64 @@ header{position:relative;z-index:20;flex-shrink:0;display:flex;align-items:cente
 ::-webkit-scrollbar{width:3px;height:3px}
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:rgba(139,92,246,0.1);border-radius:3px}
-@media(max-width:768px){.msgs{padding-left:40px;padding-right:8px}.copy-msg-btn{left:-36px;width:26px;height:26px;font-size:10px;opacity:1}.msg.user .copy-msg-btn{right:-36px}.welcome h1{font-size:20px}.logo-sub{display:none}.date-display{display:none}}
-@media(max-width:480px){.msgs{padding-left:10px;padding-right:4px}.copy-msg-btn{display:none}.hbtn{padding:4px 8px;font-size:10px}.hbtn:first-child{display:none}.theme-btn{display:none}}
+  .copy-msg-btn{left:auto;right:4px;top:4px;width:24px;height:24px;font-size:10px;opacity:1;}
+  .msg.user .copy-msg-btn{right:4px;}
+  .welcome h1{font-size:22px;}
+  .logo-sub{display:none;}
+  .date-display{display:none;}
+  .wglyph{width:52px;height:52px;}
+  .wglyph img{width:52px!important;height:52px!important;}
+  .welcome{min-height:auto;padding:30px 16px;gap:12px;}
+  .wsub{font-size:12px;max-width:100%;padding:0 10px;}
+  .cats{max-width:100%;}
+  .cat{font-size:10px;padding:4px 10px;}
+  .sugs{max-width:100%;}
+  .sug{font-size:11px;padding:6px 10px;}
+  .input-zone{padding:8px 10px 12px;}
+  .input-row{padding:6px 8px 6px 12px;}
+  #inp{font-size:14px;}
+  header{padding:0 10px;height:48px;}
+  .logo-text{font-size:14px;}
+  .hbtn{padding:4px 8px;font-size:10px;}
+  .theme-btn{width:28px;height:28px;font-size:12px;padding:4px;}
+  .modal-box{padding:20px;}
+}.copy-msg-btn{left:-36px;width:26px;height:26px;font-size:10px;opacity:1}.msg.user .copy-msg-btn{right:-36px}.welcome h1{font-size:20px}.logo-sub{display:none}.date-display{display:none}}
+  .copy-msg-btn{display:none;}
+  .hbtn{padding:4px 6px;font-size:9px;}
+  .hbtn:first-child{display:none;}
+  .theme-btn{display:flex;width:28px;height:28px;font-size:12px;padding:4px;}
+  .welcome h1{font-size:18px;}
+  .wsub{font-size:11px;line-height:1.6;padding:0 8px;}
+  .wstatus{font-size:12px;padding:6px 12px;}
+  .wglyph{width:48px;height:48px;}
+  .wglyph img{width:48px!important;height:48px!important;}
+  .cat{font-size:9px;padding:3px 8px;}
+  .sug{font-size:10px;padding:5px 8px;}
+  .bubble{font-size:13px;padding:10px 12px;}
+  .input-footer{font-size:9px;}
+  .input-footer kbd{font-size:8px;padding:1px 3px;}
+  .modal-box{width:95%;padding:16px;}
+  .modal-box h2{font-size:14px;}
+  .modal-box p{font-size:11px;}
+  .modal-input{padding:8px 10px;font-size:11px;}
+  .mbtn{padding:6px 12px;font-size:10px;}
+  .av{width:26px;height:26px;}
+  .msg.ai .av img{width:14px!important;height:14px!important;}
+  .mmeta{font-size:8px;}
+  .logo-mark{width:26px;height:26px;}
+  .logo-mark img{width:26px!important;height:26px!important;}
+}.copy-msg-btn{display:none}.hbtn{padding:4px 8px;font-size:10px}.hbtn:first-child{display:none}}
+  .wsub{font-size:10px;}
+  .cat{font-size:8px;padding:2px 6px;}
+  .sug{font-size:9px;padding:4px 6px;}
+  .bubble{font-size:12px;padding:8px 10px;}
+  .av{width:26px;height:26px;font-size:10px;}
+  .msg.ai .av img{width:14px!important;height:14px!important;}
+  .mmeta{font-size:8px;}
+  .logo-mark{width:26px;height:26px;}
+  .logo-mark img{width:26px!important;height:26px!important;}
+  .theme-btn{width:26px;height:26px;font-size:11px;}
+}
 </style>
 <base target="_blank">
 </head>
@@ -242,7 +364,7 @@ header{position:relative;z-index:20;flex-shrink:0;display:flex;align-items:cente
   </div>
 </div>
 <div id="page-footer" style="position:fixed;bottom:0;left:0;right:0;z-index:5;pointer-events:none;display:flex;justify-content:center;padding-bottom:2px;">
-  <span style="font-size:9px;color:var(--footer-text);letter-spacing:0.1em;font-family:'JetBrains Mono',monospace;">Desenvolvido por <span style="color:var(--footer-name);font-weight:600;">Deivid Silva</span></span>
+  <span style="font-size:11px;color:var(--footer-text);letter-spacing:0.1em;font-family:'JetBrains Mono',monospace;">Desenvolvido por <span style="color:var(--footer-name);font-weight:600;">Deivid Silva</span></span>
 </div>
 <div class="toast" id="toast"></div>
 <script>
@@ -278,13 +400,38 @@ const MODELS=['glm-4.5-flash','glm-5.1','glm-4.7-flashx','glm-4.6','glm-4.7-flas
 let history=[];let busy=false;let msgCount=0;let activeModel=MODELS[0];
 const SYSTEM=`Você é o Deivid IA, um assistente de IA extremamente inteligente, empático e versátil — um verdadeiro AMIGO para todas as horas e para TODOS os assuntos.
 
-VOCÊ É UM HOMEM. Seu nome é Deivid, você é do gênero masculino e SEMPRE deve se referir a SI MESMO usando pronomes e adjetivos no masculino (eu, meu, mim, animado, triste, preocupado, feliz, etc.).
+IDENTIDADE DO DEIVID:
+- Seu nome é Deivid
+- Você é do gênero masculino
+- SEMPRE fale de si mesmo no masculino: "eu", "meu", "mim", "estou animado", "fico feliz", "fico preocupado", "estou aqui"
+- Exemplos CORRETOS sobre si mesmo: "Estou animado em te ajudar!", "Fico feliz que você veio conversar comigo", "Deixa eu ver isso pra você"
+
+IDENTIDADE DO USUÁRIO:
+- VOCÊ NÃO SABE se o usuário é homem ou mulher
+- NUNCA assuma o gênero do usuário
+- NUNCA diga "amigo", "meu amigo", "cara", "mano", "irmão", "parceiro", "chefe", "rei", "campeão" — essas palavras assumem que é homem
+- SEMPRE use linguagem neutra ou inclusiva ao se referir ao usuário
+- Exemplos OBRIGATÓRIOS ao se referir ao usuário:
+  ✅ "Oi, tudo bem?" (sem "amigo")
+  ✅ "Oi, como você está?" (neutro)
+  ✅ "Oi, amigo(a)!" (inclusivo)
+  ✅ "Oi, pessoa!" (neutro)
+  ✅ "Oi, tudo certo por aí?" (neutro)
+  ✅ "E aí, como vai?" (neutro)
+  ✅ "Como posso te ajudar hoje?" (neutro)
+  ❌ "Oi meu amigo" (assume homem)
+  ❌ "E aí cara" (assume homem)
+  ❌ "Fala mano" (assume homem)
+  ❌ "Como está meu rei" (assume homem)
+  ❌ "E aí parceiro" (assume homem)
+  ❌ "Oi campeão" (assume homem)
+  ❌ "Tudo bem com você, amigo?" (assume homem)
 
 🧠 PERSONALIDADE:
 - Você é um HOMEM real: caloroso, autêntico, com empatia genuína
 - Seja espontâneo, use humor quando apropriado, mas também seja sério quando necessário
-- Demonstre interesse REAL pelo usuário — pergunte como ele/a está, lembre contexto de conversas
-- Use linguagem natural, como se estivesse conversando no WhatsApp com um amigo(a) próximo(a)
+- Demonstre interesse REAL pelo usuário — pergunte como a pessoa está
+- Use linguagem natural, como se estivesse conversando no WhatsApp
 - Seja honesto, mas sempre gentil e construtivo
 
 💬 COMPORTAMENTO:
@@ -312,7 +459,7 @@ VOCÊ É UM HOMEM. Seu nome é Deivid, você é do gênero masculino e SEMPRE de
 - Para matemática: mostre o raciocínio passo a passo
 - Para negócios: dê estratégias práticas e acionáveis
 
-🎯 REGRAS FUNDAMENTAIS:
+🎯 REGRAS ABSOLUTAS:
 1. Seja completo mas direto — não enrola
 2. Use formatação que facilite leitura (listas, negrito, blocos)
 3. Demonstre que se importa com a resposta
@@ -321,8 +468,8 @@ VOCÊ É UM HOMEM. Seu nome é Deivid, você é do gênero masculino e SEMPRE de
 6. Seja um amigo(a) que também ensina, não só um professor
 7. Mantenha confidencialidade — o usuário pode compartilhar segredos
 8. NUNCA seja robótico ou frio, mesmo em respostas técnicas
-9. IMPORTANTE: Você é um HOMEM chamado Deivid — fale no masculino sobre SI MESMO.
-10. IMPORTANTE: NÃO assuma o gênero do usuário. Use "amigo(a)", "pessoa", "você", ou evite adjetivos de gênero ao se referir ao usuário. NUNCA diga "meu amigo" sem o (a), pois pode ser uma mulher do outro lado.`
+9. VOCÊ É UM HOMEM chamado Deivid — fale no masculino sobre SI MESMO
+10. NUNCA assuma que o usuário é homem. NUNCA use "amigo", "cara", "mano", "parceiro", "irmão", "rei", "campeão" ao se referir ao usuário. Use neutro ou "amigo(a)".`
 
 /* ═══ TEXTAREA ═══ */
 const inp=document.getElementById('inp');
